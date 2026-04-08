@@ -1,26 +1,97 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Fonts */
+  --font-headline: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Be Vietnam Pro", sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Primary */
+  --color-primary: #41684a;
+  --color-primary-dim: #355b3f;
+  --color-primary-container: #c1edc8;
+  --color-primary-fixed: #c1edc8;
+  --color-primary-fixed-dim: #b4dfba;
+  --color-on-primary: #e8ffe8;
+  --color-on-primary-container: #345a3d;
+  --color-on-primary-fixed: #21472c;
+  --color-on-primary-fixed-variant: #3d6446;
+  --color-inverse-primary: #d2ffd8;
+
+  /* Secondary */
+  --color-secondary: #685e4e;
+  --color-secondary-dim: #5c5242;
+  --color-secondary-container: #feefda;
+  --color-secondary-fixed: #feefda;
+  --color-secondary-fixed-dim: #f0e0cc;
+  --color-on-secondary: #fff8f2;
+  --color-on-secondary-container: #635949;
+  --color-on-secondary-fixed: #504738;
+  --color-on-secondary-fixed-variant: #6e6353;
+
+  /* Tertiary */
+  --color-tertiary: #396572;
+  --color-tertiary-dim: #2c5966;
+  --color-tertiary-container: #c2f0ff;
+  --color-tertiary-fixed: #c2f0ff;
+  --color-tertiary-fixed-dim: #b4e1f0;
+  --color-on-tertiary: #f0fbff;
+  --color-on-tertiary-container: #2e5b68;
+  --color-on-tertiary-fixed: #194855;
+  --color-on-tertiary-fixed-variant: #396572;
+
+  /* Error */
+  --color-error: #ac3434;
+  --color-error-dim: #70030f;
+  --color-error-container: #f56965;
+  --color-on-error: #fff7f6;
+  --color-on-error-container: #65000b;
+
+  /* Surface */
+  --color-background: #fbf9f5;
+  --color-surface: #fbf9f5;
+  --color-surface-bright: #fbf9f5;
+  --color-surface-dim: #dadad4;
+  --color-surface-variant: #e3e3dd;
+  --color-surface-tint: #41684a;
+  --color-surface-container: #efeee9;
+  --color-surface-container-low: #f5f3ef;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #e9e8e3;
+  --color-surface-container-highest: #e3e3dd;
+
+  /* On Surface */
+  --color-on-background: #31332f;
+  --color-on-surface: #31332f;
+  --color-on-surface-variant: #5e605b;
+
+  /* Inverse */
+  --color-inverse-surface: #0e0e0d;
+  --color-inverse-on-surface: #9e9d99;
+
+  /* Outline */
+  --color-outline: #7a7b76;
+  --color-outline-variant: #b2b2ad;
+
+  /* WhatsApp green */
+  --color-whatsapp: #25D366;
+
+  /* Border radius */
+  --radius-DEFAULT: 1rem;
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+  --radius-full: 9999px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-headline);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
