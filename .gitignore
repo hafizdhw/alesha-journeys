@@ -42,3 +42,6 @@ next-env.d.ts
 
 # stitch design reference files
 /stitch-designs/
+
+# open next
+.open-next/
