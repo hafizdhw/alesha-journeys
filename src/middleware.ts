@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { locales, defaultLocale } from "@/dictionaries";
+
+const locales = ["en", "id"] as const;
+const defaultLocale = "en";
 
 function getLocale(request: NextRequest): string {
   const acceptLang = request.headers.get("accept-language") || "";
@@ -8,7 +10,7 @@ function getLocale(request: NextRequest): string {
   return defaultLocale;
 }
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const hasLocale = locales.some(
