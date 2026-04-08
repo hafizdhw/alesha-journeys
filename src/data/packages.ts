@@ -8,8 +8,8 @@ export const packages: Package[] = [
     duration: "Full Day",
     groupType: "Private",
     pickup: "Hotel",
-    price: 85,
-    priceLabel: "From $85",
+    price: 1400000,
+    priceLabel: "Mulai Rp 1.400.000",
     description:
       "Witness the spiritual majesty of Borobudur at its most tranquil hour. This curated journey takes you through the morning mist to see the first light touch the ancient stupas, followed by an authentic glimpse into local Javanese life.",
     heroImage:
@@ -87,8 +87,8 @@ export const packages: Package[] = [
     duration: "Half Day",
     groupType: "Private",
     pickup: "Hotel",
-    price: 65,
-    priceLabel: "From $65",
+    price: 1100000,
+    priceLabel: "Mulai Rp 1.100.000",
     description:
       "A spiritual journey through the 9th-century Hindu temples ending with a mesmerizing traditional ballet performance under the stars.",
     heroImage:
@@ -159,8 +159,8 @@ export const packages: Package[] = [
     duration: "Full Day",
     groupType: "Private",
     pickup: "Hotel",
-    price: 75,
-    priceLabel: "From $75",
+    price: 1250000,
+    priceLabel: "Mulai Rp 1.250.000",
     description:
       "Adventure through the rare Gumuk Pasir sand dunes followed by a magical sunset horse ride on the shore of the Indian Ocean.",
     heroImage:

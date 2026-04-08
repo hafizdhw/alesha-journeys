@@ -66,7 +66,7 @@
     },
     "card": {
       "seeDetails": "See Details",
-      "planViaWhatsApp": "Plan via WhatsApp",
+      "planViaWhatsApp": "Contact Us",
       "from": "From",
       "perPerson": "/ person"
     },
@@ -129,7 +129,7 @@
     "pricing": {
       "label": "Transparent Pricing",
       "title": "Simple, fair, and flexible.",
-      "price": "From $45",
+      "price": "Rp 750.000",
       "perDay": "/ day",
       "description": "Customizable based on duration and needs. Includes guide fee and basic travel assistance. Transportation can be arranged separately.",
       "noFees": "No booking fees. Instant response during business hours.",

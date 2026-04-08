@@ -119,22 +119,25 @@ export default async function PackagesPage({
               </div>
               <div className="flex items-center justify-between border-t border-surface-container-high pt-6">
                 <div>
-                  <p className="text-sm text-outline">{t.card.from}</p>
-                  <p className="text-2xl font-bold text-on-surface">
-                    ${pkg.price}{" "}
-                    <span className="text-sm font-normal text-on-surface-variant">
+                  <p className="text-xs text-outline">{t.card.from}</p>
+                  <p className="text-xl font-bold text-on-surface whitespace-nowrap">
+                    Rp {pkg.price.toLocaleString("id-ID")}
+                    <span className="text-xs font-normal text-on-surface-variant ml-1">
                       {t.card.perPerson}
                     </span>
                   </p>
                 </div>
-                <Button
+                <a
                   href={siteConfig.whatsappUrl}
-                  icon="chat"
-                  external
-                  className="whitespace-nowrap"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 bg-primary text-on-primary px-5 py-2 rounded-full text-sm font-bold hover:bg-primary-dim transition-colors flex items-center gap-2"
                 >
-                  {t.card.planViaWhatsApp}
-                </Button>
+                  <Icon name="chat" />
+                  <span className="hidden sm:inline">
+                    {t.card.planViaWhatsApp}
+                  </span>
+                </a>
               </div>
             </div>
           </div>

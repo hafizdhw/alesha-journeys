@@ -182,7 +182,7 @@ export default async function TourDetailPage({
                 </span>
                 <div className="flex items-baseline gap-1 mt-1">
                   <span className="text-3xl font-extrabold text-primary">
-                    ${pkg.price}
+                    Rp {pkg.price.toLocaleString("id-ID")}
                   </span>
                   <span className="text-on-surface-variant text-sm">
                     {t.perPerson}
@@ -222,7 +222,7 @@ export default async function TourDetailPage({
             {t.startingFrom}
           </span>
           <span className="text-xl font-extrabold text-primary">
-            ${pkg.price}
+            Rp {pkg.price.toLocaleString("id-ID")}
           </span>
         </div>
         <Button href={siteConfig.whatsappUrl} icon="chat" external>
