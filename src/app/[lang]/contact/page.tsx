@@ -4,25 +4,45 @@ import { siteConfig } from "@/data/site";
 import { Button } from "@/components/atoms/Button";
 import { Icon } from "@/components/atoms/Icon";
 import { FAQItem } from "@/components/molecules/FAQItem";
+import { getDictionary, hasLocale } from "@/dictionaries";
+import type { Locale } from "@/dictionaries";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
-  description:
-    "Get in touch with Alesha Journeys to plan your perfect Yogyakarta experience.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang as Locale);
+  return {
+    title: dict.contact.meta.title,
+    description: dict.contact.meta.description,
+  };
+}
 
-export default function ContactPage() {
+const checklistIcons = ["calendar_today", "groups", "map", "medical_services"] as const;
+
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  if (!hasLocale(lang)) notFound();
+  const dict = await getDictionary(lang as Locale);
+  const t = dict.contact;
+
   return (
     <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
       {/* Hero */}
       <header className="mb-16 text-center md:text-left">
         <h1 className="text-5xl md:text-7xl font-extrabold text-on-surface tracking-tight leading-tight mb-4">
-          Get in Touch
+          {t.hero.title}
         </h1>
         <p className="text-lg text-on-surface-variant max-w-2xl leading-relaxed">
-          Whether you&apos;re looking for a hidden temple trek or a serene
-          sunset at Parangtritis, we&apos;re here to curate your perfect
-          Yogyakarta experience.
+          {t.hero.description}
         </p>
       </header>
 
@@ -39,23 +59,18 @@ export default function ContactPage() {
               </div>
               <div className="space-y-2 mb-8">
                 <span className="text-primary font-semibold tracking-wider uppercase text-xs">
-                  Direct Channel
+                  {t.whatsapp.label}
                 </span>
                 <h2 className="text-4xl font-bold text-on-surface">
                   {siteConfig.whatsappDisplay}
                 </h2>
               </div>
-              <Button
-                href={siteConfig.whatsappUrl}
-                icon="chat"
-                size="lg"
-                external
-              >
-                Chat on WhatsApp
+              <Button href={siteConfig.whatsappUrl} icon="chat" size="lg" external>
+                {t.whatsapp.cta}
               </Button>
               <p className="mt-6 text-on-surface-variant text-sm flex items-center gap-2">
                 <Icon name="schedule" className="text-primary text-sm" />
-                We typically reply within 1 hour
+                {t.whatsapp.replyTime}
               </p>
             </div>
           </div>
@@ -64,41 +79,18 @@ export default function ContactPage() {
           <div className="bg-surface-container rounded-xl p-8 md:p-12">
             <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
               <Icon name="edit_note" className="text-primary" />
-              What to include in your message
+              {t.checklist.title}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                {
-                  icon: "calendar_today",
-                  title: "Travel date",
-                  desc: "When are you arriving?",
-                },
-                {
-                  icon: "groups",
-                  title: "Number of people",
-                  desc: "Solo, couple, or family?",
-                },
-                {
-                  icon: "map",
-                  title: "Preferred package",
-                  desc: "Or request a custom one",
-                },
-                {
-                  icon: "medical_services",
-                  title: "Special needs",
-                  desc: "Dietary or accessibility",
-                },
-              ].map((item) => (
+              {t.checklist.items.map((item, i) => (
                 <div
-                  key={item.icon}
+                  key={checklistIcons[i]}
                   className="flex items-start gap-4 p-4 bg-surface-container-lowest rounded-lg"
                 >
-                  <Icon name={item.icon} className="text-primary" />
+                  <Icon name={checklistIcons[i]} className="text-primary" />
                   <div>
                     <h4 className="font-bold text-on-surface">{item.title}</h4>
-                    <p className="text-sm text-on-surface-variant">
-                      {item.desc}
-                    </p>
+                    <p className="text-sm text-on-surface-variant">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -107,7 +99,7 @@ export default function ContactPage() {
 
           {/* Social Links */}
           <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-8 py-4">
-            <p className="font-bold text-on-surface">Follow our journey:</p>
+            <p className="font-bold text-on-surface">{t.social.follow}</p>
             <div className="flex gap-6">
               {siteConfig.socialLinks.map((link) => (
                 <a
@@ -128,16 +120,12 @@ export default function ContactPage() {
         {/* FAQ Column */}
         <div className="lg:col-span-5">
           <div className="sticky top-32 bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/10">
-            <h3 className="text-2xl font-bold mb-8">
-              Frequently Asked Questions
-            </h3>
+            <h3 className="text-2xl font-bold mb-8">{t.faq.title}</h3>
             <div className="space-y-4">
               {faqs.map((faq) => (
                 <FAQItem key={faq.id} faq={faq} />
               ))}
             </div>
-
-            {/* Decorative Image */}
             <div className="mt-12 rounded-lg overflow-hidden h-48 relative">
               <img
                 alt="Prambanan Temple"
@@ -146,7 +134,7 @@ export default function ContactPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               <div className="absolute bottom-4 left-4 text-white text-sm font-medium">
-                Jogja awaits you
+                {t.faq.jogjaAwaits}
               </div>
             </div>
           </div>

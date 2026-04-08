@@ -4,14 +4,36 @@ import { siteConfig } from "@/data/site";
 import { Button } from "@/components/atoms/Button";
 import { Icon } from "@/components/atoms/Icon";
 import { TeamCard } from "@/components/molecules/TeamCard";
+import { getDictionary, hasLocale } from "@/dictionaries";
+import type { Locale } from "@/dictionaries";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "About Us",
-  description:
-    "Born from a deep love for Yogyakarta. Learn about Alesha Journeys and our mission.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang as Locale);
+  return {
+    title: dict.about.meta.title,
+    description: dict.about.meta.description,
+  };
+}
 
-export default function AboutPage() {
+const valueIcons = ["verified_user", "eco", "volunteer_activism"] as const;
+
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  if (!hasLocale(lang)) notFound();
+  const dict = await getDictionary(lang as Locale);
+  const t = dict.about;
+
   return (
     <div className="pt-20">
       {/* Hero Section */}
@@ -26,10 +48,10 @@ export default function AboutPage() {
         </div>
         <div className="relative z-10 text-center px-6">
           <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight drop-shadow-lg">
-            We Are Alesha Journeys
+            {t.hero.title}
           </h1>
           <p className="mt-6 text-xl text-white/90 max-w-2xl mx-auto font-medium">
-            Curating authentic memories in the heart of Java.
+            {t.hero.subtitle}
           </p>
         </div>
       </section>
@@ -40,31 +62,16 @@ export default function AboutPage() {
           <div className="space-y-8 order-2 md:order-1">
             <div className="space-y-4">
               <span className="text-primary font-bold tracking-widest text-sm uppercase">
-                Our Story
+                {t.story.label}
               </span>
               <h2 className="text-4xl md:text-5xl font-bold text-on-surface leading-tight">
-                Born from a deep love for Yogyakarta.
+                {t.story.title}
               </h2>
             </div>
             <div className="space-y-6 text-on-surface-variant leading-relaxed text-lg">
-              <p>
-                Alesha Journeys didn&apos;t start in an office; it began on the
-                back of a vintage scooter cruising through the narrow alleys of
-                Kotagede and the quiet temple paths of Prambanan. We saw a gap
-                between the standard &ldquo;tourist routes&rdquo; and the
-                vibrant, breathing soul of Yogyakarta that locals know.
-              </p>
-              <p>
-                Our mission is simple: to show you the authentic side of our
-                home. We want you to feel the warmth of a Javanese morning, the
-                richness of our heritage, and the genuine smiles of people who
-                call this land home.
-              </p>
-              <p>
-                With a team of local experts, historians, and friends, we curate
-                journeys that are personal, sustainable, and deeply immersive. We
-                don&apos;t just take you to places; we connect you to stories.
-              </p>
+              <p>{t.story.p1}</p>
+              <p>{t.story.p2}</p>
+              <p>{t.story.p3}</p>
             </div>
           </div>
           <div className="relative order-1 md:order-2">
@@ -90,32 +97,16 @@ export default function AboutPage() {
       <section className="bg-surface-container py-24 rounded-t-xl">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-16 text-on-surface">
-            The Pillars of Our Journey
+            {t.values.title}
           </h2>
           <div className="grid md:grid-cols-3 gap-12">
-            {[
-              {
-                icon: "verified_user",
-                title: "Authenticity",
-                desc: "We bypass the generic to bring you true Javanese culture, from hidden art studios to the best morning gudeg in town.",
-              },
-              {
-                icon: "eco",
-                title: "Sustainability",
-                desc: "Protecting our heritage and supporting local artisans ensures that the Yogyakarta we love thrives for generations.",
-              },
-              {
-                icon: "volunteer_activism",
-                title: "Warmth",
-                desc: "In Javanese, we call it \u2018Ngayogyakarto\u2019\u2014a feeling of being at home. We treat every guest as a member of our family.",
-              },
-            ].map((value) => (
+            {t.values.items.map((value, i) => (
               <div
-                key={value.icon}
+                key={valueIcons[i]}
                 className="bg-surface-container-lowest p-10 rounded-lg shadow-sm border border-outline-variant/10 group hover:-translate-y-2 transition-all duration-300"
               >
                 <div className="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
-                  <Icon name={value.icon} className="text-primary text-3xl" />
+                  <Icon name={valueIcons[i]} className="text-primary text-3xl" />
                 </div>
                 <h3 className="text-xl font-bold mb-4">{value.title}</h3>
                 <p className="text-on-surface-variant">{value.desc}</p>
@@ -128,14 +119,10 @@ export default function AboutPage() {
       {/* The Team */}
       <section className="py-24 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Meet the Curators
-          </h2>
-          <p className="text-on-surface-variant max-w-xl mx-auto">
-            The passionate locals who bring your Indonesian adventures to life.
-          </p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">{t.team.title}</h2>
+          <p className="text-on-surface-variant max-w-xl mx-auto">{t.team.subtitle}</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {teamMembers.map((member) => (
             <TeamCard key={member.id} member={member} />
           ))}
@@ -147,16 +134,13 @@ export default function AboutPage() {
         <div className="bg-primary text-on-primary rounded-xl p-12 md:p-20 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-dim to-transparent opacity-50" />
           <div className="relative z-10 space-y-8">
-            <h2 className="text-3xl md:text-5xl font-bold">
-              Want to travel with us?
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-bold">{t.cta.title}</h2>
             <p className="text-lg text-primary-container max-w-2xl mx-auto">
-              Your authentic Yogyakarta adventure is just a conversation away.
-              Let&apos;s create a journey that belongs only to you.
+              {t.cta.description}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <Button href="/packages" variant="secondary" size="lg">
-                See Our Packages
+              <Button href={`/${lang}/packages`} variant="secondary" size="lg">
+                {t.cta.packagesCta}
               </Button>
               <Button
                 href={siteConfig.whatsappUrl}
@@ -166,7 +150,7 @@ export default function AboutPage() {
                 external
                 className="border-2 border-white/30 text-white hover:bg-white/10 hover:text-white"
               >
-                Chat on WhatsApp
+                {t.cta.chatCta}
               </Button>
             </div>
           </div>

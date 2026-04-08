@@ -1,0 +1,250 @@
+{
+  "nav": {
+    "home": "Home",
+    "packages": "Packages",
+    "tourGuide": "Tour Guide",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "footer": {
+    "tagline": "Authentic Yogyakarta experiences curated for the curious traveler. Private tours, local guides, and memories that last a lifetime.",
+    "explore": "Explore",
+    "company": "Company",
+    "allRightsReserved": "All rights reserved."
+  },
+  "home": {
+    "meta": {
+      "title": "Alesha Journeys — Authentic Yogyakarta Experiences",
+      "description": "Curated day trips & private guides tailored to your personal rhythm. Experience the soul of Java beyond the ordinary."
+    },
+    "hero": {
+      "titleLine1": "Discover Yogyakarta,",
+      "titleHighlight": "Your Way",
+      "titleLine2": "Jelajahi Yogyakarta, Sesuai Caramu",
+      "description": "Curated day trips & private guides tailored to your personal rhythm. Experience the soul of Java beyond the ordinary.",
+      "ctaPackages": "Explore Packages",
+      "ctaChat": "Chat on WhatsApp"
+    },
+    "featured": {
+      "label": "Signature Experiences",
+      "title": "Curated Day Journeys",
+      "viewAll": "View All Packages"
+    },
+    "why": {
+      "localTitle": "Local Expertise",
+      "localDesc": "Deeply rooted knowledge of Jogja's hidden gems and cultural nuances.",
+      "flexibleTitle": "Private & Flexible",
+      "flexibleDesc": "No rigid schedules. We adapt to your pace and unexpected discoveries.",
+      "whatsappTitle": "Easy WhatsApp Booking",
+      "whatsappDesc": "Instant communication and flexible adjustments right from your phone."
+    },
+    "guide": {
+      "title": "Need a Personal Guide?",
+      "description": "Hire a certified local guide for your own itinerary — flexible, bilingual, and deeply local. Perfect for those who want to wander without the worry.",
+      "cta": "Meet Our Guides",
+      "note": "Available independently from day trip packages"
+    },
+    "testimonials": {
+      "title": "Traveler Stories",
+      "subtitle": "Hear from the souls who wandered with us."
+    },
+    "custom": {
+      "title": "Can't find what you're looking for?",
+      "description": "We specialize in tailor-made journeys. Tell us your interests, and we'll craft a unique Yogyakarta experience just for you.",
+      "cta": "Plan your custom trip via WhatsApp"
+    }
+  },
+  "packages": {
+    "meta": {
+      "title": "Day Trip Packages",
+      "description": "Explore Yogyakarta's best destinations in one day with a private local guide."
+    },
+    "hero": {
+      "titleMain": "Day Trip Packages /",
+      "titleHighlight": "Paket Wisata Sehari",
+      "description": "Explore Yogyakarta's best destinations in one day with a private local guide. From sacred temples to hidden beaches, your journey starts here."
+    },
+    "card": {
+      "seeDetails": "See Details",
+      "planViaWhatsApp": "Plan via WhatsApp",
+      "from": "From",
+      "perPerson": "/ person"
+    },
+    "custom": {
+      "title": "Want something different?",
+      "description": "Your journey should be as unique as you are. Let's plan a custom itinerary together to suit your pace and interests.",
+      "cta": "Plan via WhatsApp"
+    }
+  },
+  "packageDetail": {
+    "theExperience": "The Experience",
+    "highlights": "Highlights",
+    "itinerary": "Itinerary",
+    "whatsIncluded": "What's Included",
+    "notIncluded": "Not Included",
+    "startingFrom": "Starting from",
+    "finalPriceNote": "Final price confirmed on WhatsApp",
+    "secureBooking": "Secure Booking",
+    "flexibleRescheduling": "Flexible Rescheduling",
+    "duration": "Duration",
+    "group": "Group",
+    "pickup": "Pickup",
+    "bookViaWhatsApp": "Book via WhatsApp",
+    "perPerson": "/ person",
+    "tourSuffix": "Tour"
+  },
+  "tourGuide": {
+    "meta": {
+      "title": "Tour Guide Service",
+      "description": "Hire a certified local guide who knows the hidden side of Yogyakarta."
+    },
+    "hero": {
+      "title": "Your Personal Jogja Expert",
+      "description": "Hire a certified local guide who knows the hidden side of Yogyakarta. From ancient secrets to the best street food spots.",
+      "cta": "Hire a Guide",
+      "badge": "Certified Local Experts"
+    },
+    "why": {
+      "title": "Why Travel With Our Guides?",
+      "subtitle": "Experience Jogja beyond the tourist trail with companions who care about your journey.",
+      "features": [
+        {
+          "title": "Local knowledge & storytelling",
+          "desc": "Deep dives into history, folklore, and the living culture of the city."
+        },
+        {
+          "title": "Photography assistance",
+          "desc": "Our guides know the best angles and times for your perfect travel shots."
+        },
+        {
+          "title": "Flexible itinerary",
+          "desc": "Change plans on the fly. We adapt to your mood and the day's rhythm."
+        },
+        {
+          "title": "Bahasa & English speaking",
+          "desc": "Seamless communication with locals and deep cultural bridging."
+        }
+      ]
+    },
+    "pricing": {
+      "label": "Transparent Pricing",
+      "title": "Simple, fair, and flexible.",
+      "price": "From $45",
+      "perDay": "/ day",
+      "description": "Customizable based on duration and needs. Includes guide fee and basic travel assistance. Transportation can be arranged separately.",
+      "noFees": "No booking fees. Instant response during business hours.",
+      "cta": "Chat on WhatsApp"
+    },
+    "steps": {
+      "title": "Start Your Journey in 3 Steps",
+      "items": [
+        {
+          "num": "01",
+          "title": "Tell us your plan",
+          "desc": "Share your interests, travel dates, and what you're looking for in a guide."
+        },
+        {
+          "num": "02",
+          "title": "We match you",
+          "desc": "We match you with the right guide who shares your passions and speaks your language."
+        },
+        {
+          "num": "03",
+          "title": "Meet & explore",
+          "desc": "Meet your guide at your hotel or preferred spot and start exploring Yogyakarta together."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Meet Our Expert Guides",
+      "subtitle": "Trained, passionate, and ready to welcome you."
+    },
+    "testimonials": {
+      "title": "What travelers say about us",
+      "subtitle": "Personal stories from those who explored Yogyakarta through the eyes of our local guides.",
+      "reviewCount": "200+",
+      "reviewLabel": "5-Star Reviews"
+    },
+    "cta": {
+      "title": "Ready to explore with a local?",
+      "description": "Don't just see Yogyakarta, experience it. Book your guide today and start your authentic adventure.",
+      "bookCta": "Book a Guide via WhatsApp",
+      "aboutCta": "Learn More About Us"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About Us",
+      "description": "Born from a deep love for Yogyakarta. Learn about Alesha Journeys and our mission."
+    },
+    "hero": {
+      "title": "We Are Alesha Journeys",
+      "subtitle": "Curating authentic memories in the heart of Java."
+    },
+    "story": {
+      "label": "Our Story",
+      "title": "Born from a deep love for Yogyakarta.",
+      "p1": "Alesha Journeys didn't start in an office; it began on the back of a vintage scooter cruising through the narrow alleys of Kotagede and the quiet temple paths of Prambanan. We saw a gap between the standard \"tourist routes\" and the vibrant, breathing soul of Yogyakarta that locals know.",
+      "p2": "Our mission is simple: to show you the authentic side of our home. We want you to feel the warmth of a Javanese morning, the richness of our heritage, and the genuine smiles of people who call this land home.",
+      "p3": "With a team of local experts, historians, and friends, we curate journeys that are personal, sustainable, and deeply immersive. We don't just take you to places; we connect you to stories."
+    },
+    "values": {
+      "title": "The Pillars of Our Journey",
+      "items": [
+        {
+          "title": "Authenticity",
+          "desc": "We bypass the generic to bring you true Javanese culture, from hidden art studios to the best morning gudeg in town."
+        },
+        {
+          "title": "Sustainability",
+          "desc": "Protecting our heritage and supporting local artisans ensures that the Yogyakarta we love thrives for generations."
+        },
+        {
+          "title": "Warmth",
+          "desc": "In Javanese, we call it \u2018Ngayogyakarto\u2019 \u2014 a feeling of being at home. We treat every guest as a member of our family."
+        }
+      ]
+    },
+    "team": {
+      "title": "Meet the Curators",
+      "subtitle": "The passionate locals who bring your Indonesian adventures to life."
+    },
+    "cta": {
+      "title": "Want to travel with us?",
+      "description": "Your authentic Yogyakarta adventure is just a conversation away. Let's create a journey that belongs only to you.",
+      "packagesCta": "See Our Packages",
+      "chatCta": "Chat on WhatsApp"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact Us",
+      "description": "Get in touch with Alesha Journeys to plan your perfect Yogyakarta experience."
+    },
+    "hero": {
+      "title": "Get in Touch",
+      "description": "Whether you're looking for a hidden temple trek or a serene sunset at Parangtritis, we're here to curate your perfect Yogyakarta experience."
+    },
+    "whatsapp": {
+      "label": "Direct Channel",
+      "cta": "Chat on WhatsApp",
+      "replyTime": "We typically reply within 1 hour"
+    },
+    "checklist": {
+      "title": "What to include in your message",
+      "items": [
+        { "title": "Travel date", "desc": "When are you arriving?" },
+        { "title": "Number of people", "desc": "Solo, couple, or family?" },
+        { "title": "Preferred package", "desc": "Or request a custom one" },
+        { "title": "Special needs", "desc": "Dietary or accessibility" }
+      ]
+    },
+    "social": {
+      "follow": "Follow our journey:"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "jogjaAwaits": "Jogja awaits you"
+    }
+  }
+}

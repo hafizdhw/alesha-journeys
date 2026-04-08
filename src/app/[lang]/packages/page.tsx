@@ -1,18 +1,38 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { packages } from "@/data/packages";
 import { siteConfig } from "@/data/site";
 import { Button } from "@/components/atoms/Button";
 import { Icon } from "@/components/atoms/Icon";
 import { Badge } from "@/components/atoms/Badge";
-import Link from "next/link";
+import { getDictionary, hasLocale } from "@/dictionaries";
+import type { Locale } from "@/dictionaries";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Day Trip Packages",
-  description:
-    "Explore Yogyakarta's best destinations in one day with a private local guide.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang as Locale);
+  return {
+    title: dict.packages.meta.title,
+    description: dict.packages.meta.description,
+  };
+}
 
-export default function PackagesPage() {
+export default async function PackagesPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  if (!hasLocale(lang)) notFound();
+  const dict = await getDictionary(lang as Locale);
+  const t = dict.packages;
+
   return (
     <div className="pt-24">
       {/* Hero Section */}
@@ -20,13 +40,11 @@ export default function PackagesPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface mb-6 leading-[1.1]">
-              Day Trip Packages /{" "}
-              <span className="text-primary">Paket Wisata Sehari</span>
+              {t.hero.titleMain}{" "}
+              <span className="text-primary">{t.hero.titleHighlight}</span>
             </h1>
             <p className="text-xl text-on-surface-variant max-w-xl leading-relaxed">
-              Explore Yogyakarta&apos;s best destinations in one day with a
-              private local guide. From sacred temples to hidden beaches, your
-              journey starts here.
+              {t.hero.description}
             </p>
           </div>
           <div className="relative">
@@ -57,13 +75,16 @@ export default function PackagesPage() {
               index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             } gap-10 transition-transform duration-300 hover:scale-[1.01]`}
           >
-            <div className="md:w-1/2 overflow-hidden rounded-md h-80">
+            <Link
+              href={`/${lang}/packages/${pkg.slug}`}
+              className="md:w-1/2 overflow-hidden rounded-md h-80 block"
+            >
               <img
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 src={pkg.cardImage}
                 alt={pkg.title}
               />
-            </div>
+            </Link>
             <div className="md:w-1/2 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-4">
@@ -79,9 +100,11 @@ export default function PackagesPage() {
                     {pkg.location}
                   </span>
                 </div>
-                <h2 className="text-3xl font-bold mb-4 text-on-surface">
-                  {pkg.title}
-                </h2>
+                <Link href={`/${lang}/packages/${pkg.slug}`}>
+                  <h2 className="text-3xl font-bold mb-4 text-on-surface hover:text-primary transition-colors">
+                    {pkg.title}
+                  </h2>
+                </Link>
                 <ul className="space-y-3 mb-8">
                   {pkg.featureIcons.map((f) => (
                     <li
@@ -96,11 +119,11 @@ export default function PackagesPage() {
               </div>
               <div className="flex items-center justify-between border-t border-surface-container-high pt-6">
                 <div>
-                  <p className="text-sm text-outline">From</p>
+                  <p className="text-sm text-outline">{t.card.from}</p>
                   <p className="text-2xl font-bold text-on-surface">
                     ${pkg.price}{" "}
                     <span className="text-sm font-normal text-on-surface-variant">
-                      / person
+                      {t.card.perPerson}
                     </span>
                   </p>
                 </div>
@@ -108,8 +131,9 @@ export default function PackagesPage() {
                   href={siteConfig.whatsappUrl}
                   icon="chat"
                   external
+                  className="whitespace-nowrap"
                 >
-                  Plan via WhatsApp
+                  {t.card.planViaWhatsApp}
                 </Button>
               </div>
             </div>
@@ -122,11 +146,10 @@ export default function PackagesPage() {
         <div className="max-w-7xl mx-auto rounded-xl bg-primary-dim p-12 text-center relative overflow-hidden">
           <div className="relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold text-on-primary mb-6">
-              Want something different?
+              {t.custom.title}
             </h2>
             <p className="text-xl text-primary-container mb-10 max-w-2xl mx-auto">
-              Your journey should be as unique as you are. Let&apos;s plan a
-              custom itinerary together to suit your pace and interests.
+              {t.custom.description}
             </p>
             <Button
               href={siteConfig.whatsappUrl}
@@ -135,7 +158,7 @@ export default function PackagesPage() {
               size="lg"
               external
             >
-              Plan via WhatsApp
+              {t.custom.cta}
             </Button>
           </div>
         </div>

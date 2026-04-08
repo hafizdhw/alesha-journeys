@@ -1,0 +1,250 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "packages": "Paket",
+    "tourGuide": "Pemandu Wisata",
+    "about": "Tentang Kami",
+    "contact": "Kontak"
+  },
+  "footer": {
+    "tagline": "Pengalaman Yogyakarta yang autentik, dikurasi untuk pelancong yang penasaran. Tur pribadi, pemandu lokal, dan kenangan yang tak terlupakan.",
+    "explore": "Jelajahi",
+    "company": "Perusahaan",
+    "allRightsReserved": "Hak cipta dilindungi."
+  },
+  "home": {
+    "meta": {
+      "title": "Alesha Journeys — Pengalaman Yogyakarta yang Autentik",
+      "description": "Perjalanan sehari & pemandu pribadi yang disesuaikan dengan ritme Anda. Rasakan jiwa Jawa di luar yang biasa."
+    },
+    "hero": {
+      "titleLine1": "Jelajahi Yogyakarta,",
+      "titleHighlight": "Sesuai Caramu",
+      "titleLine2": "Discover Yogyakarta, Your Way",
+      "description": "Perjalanan sehari & pemandu pribadi yang disesuaikan dengan ritme Anda. Rasakan jiwa Jawa di luar yang biasa.",
+      "ctaPackages": "Lihat Paket",
+      "ctaChat": "Chat via WhatsApp"
+    },
+    "featured": {
+      "label": "Pengalaman Unggulan",
+      "title": "Perjalanan Sehari yang Terkurasi",
+      "viewAll": "Lihat Semua Paket"
+    },
+    "why": {
+      "localTitle": "Keahlian Lokal",
+      "localDesc": "Pengetahuan mendalam tentang permata tersembunyi Jogja dan nuansa budayanya.",
+      "flexibleTitle": "Pribadi & Fleksibel",
+      "flexibleDesc": "Tanpa jadwal kaku. Kami menyesuaikan dengan ritme dan penemuan tak terduga Anda.",
+      "whatsappTitle": "Pemesanan Mudah via WhatsApp",
+      "whatsappDesc": "Komunikasi instan dan penyesuaian fleksibel langsung dari ponsel Anda."
+    },
+    "guide": {
+      "title": "Butuh Pemandu Pribadi?",
+      "description": "Sewa pemandu lokal bersertifikat untuk itinerary Anda sendiri — fleksibel, bilingual, dan sangat lokal. Cocok untuk yang ingin menjelajah tanpa khawatir.",
+      "cta": "Temui Pemandu Kami",
+      "note": "Tersedia secara terpisah dari paket wisata sehari"
+    },
+    "testimonials": {
+      "title": "Cerita Para Wisatawan",
+      "subtitle": "Dengar dari mereka yang telah berjalan bersama kami."
+    },
+    "custom": {
+      "title": "Tidak menemukan yang Anda cari?",
+      "description": "Kami ahli dalam perjalanan yang disesuaikan. Ceritakan minat Anda, dan kami akan merancang pengalaman Yogyakarta yang unik untuk Anda.",
+      "cta": "Rencanakan perjalanan kustom via WhatsApp"
+    }
+  },
+  "packages": {
+    "meta": {
+      "title": "Paket Wisata Sehari",
+      "description": "Jelajahi destinasi terbaik Yogyakarta dalam sehari bersama pemandu lokal pribadi."
+    },
+    "hero": {
+      "titleMain": "Paket Wisata Sehari /",
+      "titleHighlight": "Day Trip Packages",
+      "description": "Jelajahi destinasi terbaik Yogyakarta dalam sehari bersama pemandu lokal pribadi. Dari candi suci hingga pantai tersembunyi, perjalanan Anda dimulai di sini."
+    },
+    "card": {
+      "seeDetails": "Lihat Detail",
+      "planViaWhatsApp": "Rencanakan via WhatsApp",
+      "from": "Mulai dari",
+      "perPerson": "/ orang"
+    },
+    "custom": {
+      "title": "Ingin sesuatu yang berbeda?",
+      "description": "Perjalanan Anda harus seunik diri Anda. Mari rencanakan itinerary kustom bersama sesuai pace dan minat Anda.",
+      "cta": "Rencanakan via WhatsApp"
+    }
+  },
+  "packageDetail": {
+    "theExperience": "Pengalaman",
+    "highlights": "Keunggulan",
+    "itinerary": "Itinerary",
+    "whatsIncluded": "Yang Termasuk",
+    "notIncluded": "Tidak Termasuk",
+    "startingFrom": "Mulai dari",
+    "finalPriceNote": "Harga final dikonfirmasi via WhatsApp",
+    "secureBooking": "Pemesanan Aman",
+    "flexibleRescheduling": "Penjadwalan Fleksibel",
+    "duration": "Durasi",
+    "group": "Grup",
+    "pickup": "Penjemputan",
+    "bookViaWhatsApp": "Pesan via WhatsApp",
+    "perPerson": "/ orang",
+    "tourSuffix": "Tour"
+  },
+  "tourGuide": {
+    "meta": {
+      "title": "Layanan Pemandu Wisata",
+      "description": "Sewa pemandu lokal bersertifikat yang mengetahui sisi tersembunyi Yogyakarta."
+    },
+    "hero": {
+      "title": "Ahli Jogja Pribadi Anda",
+      "description": "Sewa pemandu lokal bersertifikat yang mengetahui sisi tersembunyi Yogyakarta. Dari rahasia kuno hingga jajanan terbaik.",
+      "cta": "Sewa Pemandu",
+      "badge": "Ahli Lokal Bersertifikat"
+    },
+    "why": {
+      "title": "Mengapa Berwisata dengan Pemandu Kami?",
+      "subtitle": "Nikmati Jogja melampaui jalur wisata biasa bersama teman yang peduli dengan perjalanan Anda.",
+      "features": [
+        {
+          "title": "Pengetahuan lokal & bercerita",
+          "desc": "Penyelaman mendalam ke sejarah, cerita rakyat, dan budaya hidup kota ini."
+        },
+        {
+          "title": "Bantuan fotografi",
+          "desc": "Pemandu kami tahu sudut dan waktu terbaik untuk foto perjalanan sempurna Anda."
+        },
+        {
+          "title": "Itinerary fleksibel",
+          "desc": "Ubah rencana kapan saja. Kami menyesuaikan dengan suasana hati dan ritme hari Anda."
+        },
+        {
+          "title": "Berbahasa Indonesia & Inggris",
+          "desc": "Komunikasi lancar dengan warga lokal dan jembatan budaya yang mendalam."
+        }
+      ]
+    },
+    "pricing": {
+      "label": "Harga Transparan",
+      "title": "Sederhana, adil, dan fleksibel.",
+      "price": "Mulai $45",
+      "perDay": "/ hari",
+      "description": "Dapat disesuaikan berdasarkan durasi dan kebutuhan. Termasuk biaya pemandu dan bantuan perjalanan dasar. Transportasi dapat diatur secara terpisah.",
+      "noFees": "Tanpa biaya pemesanan. Respons instan selama jam kerja.",
+      "cta": "Chat via WhatsApp"
+    },
+    "steps": {
+      "title": "Mulai Perjalanan Anda dalam 3 Langkah",
+      "items": [
+        {
+          "num": "01",
+          "title": "Ceritakan rencana Anda",
+          "desc": "Bagikan minat, tanggal perjalanan, dan apa yang Anda cari dari seorang pemandu."
+        },
+        {
+          "num": "02",
+          "title": "Kami mencarikan yang cocok",
+          "desc": "Kami mencocokkan Anda dengan pemandu yang berbagi passion dan berbicara bahasa Anda."
+        },
+        {
+          "num": "03",
+          "title": "Bertemu & menjelajah",
+          "desc": "Temui pemandu di hotel atau lokasi pilihan Anda dan mulailah menjelajahi Yogyakarta bersama."
+        }
+      ]
+    },
+    "guides": {
+      "title": "Temui Pemandu Ahli Kami",
+      "subtitle": "Terlatih, bersemangat, dan siap menyambut Anda."
+    },
+    "testimonials": {
+      "title": "Apa kata para wisatawan",
+      "subtitle": "Cerita pribadi dari mereka yang menjelajahi Yogyakarta melalui mata pemandu lokal kami.",
+      "reviewCount": "200+",
+      "reviewLabel": "Ulasan Bintang 5"
+    },
+    "cta": {
+      "title": "Siap menjelajah bersama warga lokal?",
+      "description": "Jangan hanya melihat Yogyakarta, rasakan. Pesan pemandu Anda hari ini dan mulailah petualangan autentik.",
+      "bookCta": "Pesan Pemandu via WhatsApp",
+      "aboutCta": "Pelajari Lebih Lanjut"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Tentang Kami",
+      "description": "Lahir dari kecintaan mendalam terhadap Yogyakarta. Pelajari tentang Alesha Journeys dan misi kami."
+    },
+    "hero": {
+      "title": "Kami adalah Alesha Journeys",
+      "subtitle": "Mengkurasi kenangan autentik di jantung Jawa."
+    },
+    "story": {
+      "label": "Kisah Kami",
+      "title": "Lahir dari kecintaan mendalam terhadap Yogyakarta.",
+      "p1": "Alesha Journeys tidak dimulai dari kantor; melainkan di atas punggung skuter vintage yang melaju melalui gang-gang sempit Kotagede dan jalan candi Prambanan yang sunyi. Kami melihat kesenjangan antara \"rute wisata\" biasa dengan jiwa Yogyakarta yang hidup dan bernapas yang dikenal oleh warga lokal.",
+      "p2": "Misi kami sederhana: menunjukkan sisi autentik dari rumah kami. Kami ingin Anda merasakan kehangatan pagi hari Jawa, kekayaan warisan budaya kami, dan senyum tulus orang-orang yang menyebut tanah ini rumah mereka.",
+      "p3": "Bersama tim ahli lokal, sejarawan, dan sahabat, kami mengkurasi perjalanan yang personal, berkelanjutan, dan sangat mendalam. Kami tidak hanya membawa Anda ke tempat-tempat; kami menghubungkan Anda dengan cerita."
+    },
+    "values": {
+      "title": "Pilar Perjalanan Kami",
+      "items": [
+        {
+          "title": "Keaslian",
+          "desc": "Kami melewati yang generik untuk menghadirkan budaya Jawa yang sesungguhnya, dari studio seni tersembunyi hingga gudeg pagi terbaik di kota."
+        },
+        {
+          "title": "Keberlanjutan",
+          "desc": "Melindungi warisan kami dan mendukung pengrajin lokal memastikan Yogyakarta yang kami cintai tetap lestari untuk generasi mendatang."
+        },
+        {
+          "title": "Kehangatan",
+          "desc": "Dalam bahasa Jawa, kami menyebutnya \u2018Ngayogyakarto\u2019 \u2014 perasaan seperti di rumah sendiri. Kami memperlakukan setiap tamu sebagai anggota keluarga kami."
+        }
+      ]
+    },
+    "team": {
+      "title": "Temui Para Kurator",
+      "subtitle": "Warga lokal yang bersemangat menghadirkan petualangan Indonesia untuk Anda."
+    },
+    "cta": {
+      "title": "Ingin berwisata bersama kami?",
+      "description": "Petualangan Yogyakarta autentik Anda hanya selangkah percakapan. Mari ciptakan perjalanan yang hanya milik Anda.",
+      "packagesCta": "Lihat Paket Kami",
+      "chatCta": "Chat via WhatsApp"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Kontak Kami",
+      "description": "Hubungi Alesha Journeys untuk merencanakan pengalaman Yogyakarta yang sempurna."
+    },
+    "hero": {
+      "title": "Hubungi Kami",
+      "description": "Baik Anda mencari trekking candi tersembunyi atau matahari terbenam di Parangtritis, kami siap mengkurasi pengalaman Yogyakarta sempurna untuk Anda."
+    },
+    "whatsapp": {
+      "label": "Saluran Langsung",
+      "cta": "Chat via WhatsApp",
+      "replyTime": "Kami biasanya membalas dalam 1 jam"
+    },
+    "checklist": {
+      "title": "Yang perlu disertakan dalam pesan Anda",
+      "items": [
+        { "title": "Tanggal perjalanan", "desc": "Kapan Anda tiba?" },
+        { "title": "Jumlah orang", "desc": "Solo, pasangan, atau keluarga?" },
+        { "title": "Paket pilihan", "desc": "Atau minta paket kustom" },
+        { "title": "Kebutuhan khusus", "desc": "Diet atau aksesibilitas" }
+      ]
+    },
+    "social": {
+      "follow": "Ikuti perjalanan kami:"
+    },
+    "faq": {
+      "title": "Pertanyaan yang Sering Diajukan",
+      "jogjaAwaits": "Jogja menantimu"
+    }
+  }
+}

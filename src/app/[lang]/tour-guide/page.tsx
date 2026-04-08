@@ -6,14 +6,38 @@ import { Button } from "@/components/atoms/Button";
 import { Icon } from "@/components/atoms/Icon";
 import { GuideCard } from "@/components/molecules/GuideCard";
 import { StarRating } from "@/components/molecules/StarRating";
+import { getDictionary, hasLocale } from "@/dictionaries";
+import type { Locale } from "@/dictionaries";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Tour Guide Service",
-  description:
-    "Hire a certified local guide who knows the hidden side of Yogyakarta.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang as Locale);
+  return {
+    title: dict.tourGuide.meta.title,
+    description: dict.tourGuide.meta.description,
+  };
+}
 
-export default function TourGuidePage() {
+const featureIcons = ["auto_stories", "photo_camera", "map", "translate"] as const;
+const featureBgs = ["bg-primary-container", "bg-secondary-container", "bg-tertiary-container", "bg-primary-container"] as const;
+const featureFgs = ["text-primary", "text-secondary", "text-tertiary", "text-primary"] as const;
+
+export default async function TourGuidePage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  if (!hasLocale(lang)) notFound();
+  const dict = await getDictionary(lang as Locale);
+  const t = dict.tourGuide;
+
   return (
     <div className="pt-24">
       {/* Hero Section */}
@@ -21,24 +45,18 @@ export default function TourGuidePage() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
             <h1 className="text-5xl lg:text-7xl font-extrabold text-primary leading-[1.1] mb-6 tracking-tight">
-              Your Personal Jogja Expert
+              {t.hero.title}
             </h1>
             <p className="text-xl text-on-surface-variant mb-8 leading-relaxed max-w-xl">
-              Hire a certified local guide who knows the hidden side of
-              Yogyakarta. From ancient secrets to the best street food spots.
+              {t.hero.description}
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button
-                href={siteConfig.whatsappUrl}
-                icon="chat"
-                size="lg"
-                external
-              >
-                Hire a Guide
+              <Button href={siteConfig.whatsappUrl} icon="chat" size="lg" external>
+                {t.hero.cta}
               </Button>
               <div className="flex items-center gap-2 px-6 py-4 bg-surface-container rounded-full">
                 <Icon name="verified_user" className="text-primary" />
-                <span className="font-medium">Certified Local Experts</span>
+                <span className="font-medium">{t.hero.badge}</span>
               </div>
             </div>
           </div>
@@ -59,57 +77,23 @@ export default function TourGuidePage() {
       <section className="bg-surface-container py-24 rounded-t-xl">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16 text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-on-surface mb-4">
-              Why Travel With Our Guides?
-            </h2>
-            <p className="text-on-surface-variant">
-              Experience Jogja beyond the tourist trail with companions who care
-              about your journey.
-            </p>
+            <h2 className="text-3xl font-bold text-on-surface mb-4">{t.why.title}</h2>
+            <p className="text-on-surface-variant">{t.why.subtitle}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: "auto_stories",
-                title: "Local knowledge & storytelling",
-                desc: "Deep dives into history, folklore, and the living culture of the city.",
-                bg: "bg-primary-container",
-                fg: "text-primary",
-              },
-              {
-                icon: "photo_camera",
-                title: "Photography assistance",
-                desc: "Our guides know the best angles and times for your perfect travel shots.",
-                bg: "bg-secondary-container",
-                fg: "text-secondary",
-              },
-              {
-                icon: "map",
-                title: "Flexible itinerary",
-                desc: "Change plans on the fly. We adapt to your mood and the day\u2019s rhythm.",
-                bg: "bg-tertiary-container",
-                fg: "text-tertiary",
-              },
-              {
-                icon: "translate",
-                title: "Bahasa & English speaking",
-                desc: "Seamless communication with locals and deep cultural bridging.",
-                bg: "bg-primary-container",
-                fg: "text-primary",
-              },
-            ].map((item) => (
+            {t.why.features.map((feature, i) => (
               <div
-                key={item.icon}
+                key={featureIcons[i]}
                 className="bg-surface-container-lowest p-8 rounded-lg hover:scale-[1.02] transition-transform duration-300"
               >
                 <div
-                  className={`w-12 h-12 ${item.bg} ${item.fg} rounded-xl flex items-center justify-center mb-6`}
+                  className={`w-12 h-12 ${featureBgs[i]} ${featureFgs[i]} rounded-xl flex items-center justify-center mb-6`}
                 >
-                  <Icon name={item.icon} />
+                  <Icon name={featureIcons[i]} />
                 </div>
-                <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
                 <p className="text-sm text-on-surface-variant leading-relaxed">
-                  {item.desc}
+                  {feature.desc}
                 </p>
               </div>
             ))}
@@ -123,22 +107,16 @@ export default function TourGuidePage() {
           <div className="flex flex-col md:flex-row items-stretch">
             <div className="flex-1 p-8 md:p-12">
               <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
-                Transparent Pricing
+                {t.pricing.label}
               </span>
-              <h2 className="text-3xl font-bold mb-6">
-                Simple, fair, and flexible.
-              </h2>
+              <h2 className="text-3xl font-bold mb-6">{t.pricing.title}</h2>
               <div className="flex items-baseline gap-2 mb-4">
                 <span className="text-5xl font-extrabold text-on-surface">
-                  From $45
+                  {t.pricing.price}
                 </span>
-                <span className="text-on-surface-variant">/ day</span>
+                <span className="text-on-surface-variant">{t.pricing.perDay}</span>
               </div>
-              <p className="text-on-surface-variant max-w-md">
-                Customizable based on duration and needs. Includes guide fee and
-                basic travel assistance. Transportation can be arranged
-                separately.
-              </p>
+              <p className="text-on-surface-variant max-w-md">{t.pricing.description}</p>
             </div>
             <div className="bg-secondary-container p-8 md:p-12 flex flex-col justify-center items-center md:items-start md:w-1/3">
               <Button
@@ -149,10 +127,10 @@ export default function TourGuidePage() {
                 external
                 className="w-full mb-4"
               >
-                Chat on WhatsApp
+                {t.pricing.cta}
               </Button>
               <p className="text-xs text-on-secondary-container text-center md:text-left opacity-75">
-                No booking fees. Instant response during business hours.
+                {t.pricing.noFees}
               </p>
             </div>
           </div>
@@ -161,33 +139,13 @@ export default function TourGuidePage() {
 
       {/* How it Works */}
       <section className="max-w-7xl mx-auto px-6 mb-24">
-        <h2 className="text-3xl font-bold text-center mb-16">
-          Start Your Journey in 3 Steps
-        </h2>
+        <h2 className="text-3xl font-bold text-center mb-16">{t.steps.title}</h2>
         <div className="grid md:grid-cols-3 gap-12 relative">
           <div className="hidden md:block absolute top-12 left-1/4 right-1/4 h-[2px] bg-outline-variant/30 -z-10" />
-          {[
-            {
-              num: "01",
-              title: "Tell us your plan",
-              desc: "Share your interests, travel dates, and what you\u2019re looking for in a guide.",
-            },
-            {
-              num: "02",
-              title: "We match you",
-              desc: "We match you with the right guide who shares your passions and speaks your language.",
-            },
-            {
-              num: "03",
-              title: "Meet & explore",
-              desc: "Meet your guide at your hotel or preferred spot and start exploring Yogyakarta together.",
-            },
-          ].map((step) => (
+          {t.steps.items.map((step) => (
             <div key={step.num} className="text-center group">
               <div className="w-24 h-24 bg-surface-container-high rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-container transition-colors border-4 border-background">
-                <span className="text-2xl font-bold text-primary">
-                  {step.num}
-                </span>
+                <span className="text-2xl font-bold text-primary">{step.num}</span>
               </div>
               <h3 className="font-bold text-xl mb-3">{step.title}</h3>
               <p className="text-on-surface-variant">{step.desc}</p>
@@ -200,12 +158,8 @@ export default function TourGuidePage() {
       <section className="bg-surface-container-low py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-2">
-              Meet Our Expert Guides
-            </h2>
-            <p className="text-on-surface-variant">
-              Trained, passionate, and ready to welcome you.
-            </p>
+            <h2 className="text-3xl font-bold mb-2">{t.guides.title}</h2>
+            <p className="text-on-surface-variant">{t.guides.subtitle}</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {guides.map((guide) => (
@@ -219,48 +173,38 @@ export default function TourGuidePage() {
       <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-1">
-            <h2 className="text-4xl font-bold mb-6">
-              What travelers say about us
-            </h2>
-            <p className="text-on-surface-variant mb-8">
-              Personal stories from those who explored Yogyakarta through the
-              eyes of our local guides.
-            </p>
+            <h2 className="text-4xl font-bold mb-6">{t.testimonials.title}</h2>
+            <p className="text-on-surface-variant mb-8">{t.testimonials.subtitle}</p>
             <div className="bg-surface-container p-4 rounded-lg inline-block">
               <span className="text-3xl font-bold text-primary block">
-                200+
+                {t.testimonials.reviewCount}
               </span>
               <span className="text-xs font-medium uppercase text-on-surface-variant">
-                5-Star Reviews
+                {t.testimonials.reviewLabel}
               </span>
             </div>
           </div>
           <div className="lg:col-span-2 grid md:grid-cols-2 gap-6">
-            {guideTestimonials.map((t) => (
+            {guideTestimonials.map((testimonial) => (
               <div
-                key={t.id}
+                key={testimonial.id}
                 className="bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/10 flex flex-col justify-between"
               >
                 <div>
-                  <StarRating
-                    rating={t.rating}
-                    className="mb-4 text-amber-500"
-                  />
+                  <StarRating rating={testimonial.rating} className="mb-4 text-amber-500" />
                   <p className="italic text-on-surface-variant mb-6">
-                    &ldquo;{t.quote}&rdquo;
+                    &ldquo;{testimonial.quote}&rdquo;
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-bold ${t.colorClass}`}
+                    className={`w-12 h-12 rounded-full flex items-center justify-center font-bold ${testimonial.colorClass}`}
                   >
-                    {t.initials}
+                    {testimonial.initials}
                   </div>
                   <div>
-                    <p className="font-bold">{t.author}</p>
-                    <p className="text-xs text-on-surface-variant">
-                      {t.country}
-                    </p>
+                    <p className="font-bold">{testimonial.author}</p>
+                    <p className="text-xs text-on-surface-variant">{testimonial.country}</p>
                   </div>
                 </div>
               </div>
@@ -274,25 +218,21 @@ export default function TourGuidePage() {
         <div className="bg-primary rounded-xl p-12 text-center text-on-primary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full -ml-32 -mb-32" />
-          <h2 className="text-4xl font-bold mb-6 relative z-10">
-            Ready to explore with a local?
-          </h2>
+          <h2 className="text-4xl font-bold mb-6 relative z-10">{t.cta.title}</h2>
           <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto relative z-10">
-            Don&apos;t just see Yogyakarta, experience it. Book your guide today
-            and start your authentic adventure.
+            {t.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
-            <Button
-              href={siteConfig.whatsappUrl}
-              variant="whatsapp"
-              icon="chat"
-              size="lg"
-              external
-            >
-              Book a Guide via WhatsApp
+            <Button href={siteConfig.whatsappUrl} variant="whatsapp" icon="chat" size="lg" external>
+              {t.cta.bookCta}
             </Button>
-            <Button href="/about" variant="ghost" size="lg" className="bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-white/20 hover:text-white">
-              Learn More About Us
+            <Button
+              href={`/${lang}/about`}
+              variant="ghost"
+              size="lg"
+              className="bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-white/20 hover:text-white"
+            >
+              {t.cta.aboutCta}
             </Button>
           </div>
         </div>

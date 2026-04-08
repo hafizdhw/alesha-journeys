@@ -5,10 +5,36 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/data/site";
 import { Icon } from "@/components/atoms/Icon";
+import type { Locale } from "@/dictionaries";
 
-export function Header() {
+interface NavT {
+  home: string;
+  packages: string;
+  tourGuide: string;
+  about: string;
+  contact: string;
+}
+
+interface HeaderProps {
+  lang: Locale;
+  navT: NavT;
+}
+
+export function Header({ lang, navT }: HeaderProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const otherLang: Locale = lang === "en" ? "id" : "en";
+  // Swap locale prefix in current path
+  const otherLangPath = pathname.replace(`/${lang}`, `/${otherLang}`);
+
+  const navItems = [
+    { label: navT.home, href: `/${lang}` },
+    { label: navT.packages, href: `/${lang}/packages` },
+    { label: navT.tourGuide, href: `/${lang}/tour-guide` },
+    { label: navT.about, href: `/${lang}/about` },
+    { label: navT.contact, href: `/${lang}/contact` },
+  ];
 
   return (
     <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl">
@@ -21,7 +47,7 @@ export function Header() {
             <Icon name={mobileMenuOpen ? "close" : "menu"} />
           </button>
           <Link
-            href="/"
+            href={`/${lang}`}
             className="text-2xl font-bold tracking-tight text-primary font-[family-name:var(--font-headline)]"
           >
             {siteConfig.name}
@@ -29,7 +55,7 @@ export function Header() {
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          {siteConfig.navigation.map((item) => {
+          {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
               <Link
@@ -47,15 +73,18 @@ export function Header() {
           })}
         </div>
 
-        <div className="flex items-center gap-4">
-          <span className="text-sm font-medium text-primary">EN|ID</span>
-        </div>
+        <Link
+          href={otherLangPath}
+          className="text-sm font-bold text-primary hover:opacity-70 transition-opacity uppercase tracking-wider"
+        >
+          {otherLang}
+        </Link>
       </nav>
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-xl border-t border-outline-variant/10 px-6 py-4 space-y-4">
-          {siteConfig.navigation.map((item) => {
+          {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
               <Link
@@ -70,6 +99,13 @@ export function Header() {
               </Link>
             );
           })}
+          <Link
+            href={otherLangPath}
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-2 text-sm font-bold text-primary uppercase tracking-wider"
+          >
+            Switch to {otherLang.toUpperCase()}
+          </Link>
         </div>
       )}
     </header>

@@ -5,21 +5,27 @@ import { siteConfig } from "@/data/site";
 import { Button } from "@/components/atoms/Button";
 import { Icon } from "@/components/atoms/Icon";
 import { Badge } from "@/components/atoms/Badge";
+import { getDictionary, hasLocale, locales } from "@/dictionaries";
+import type { Locale } from "@/dictionaries";
 
 export function generateStaticParams() {
-  return packages.map((pkg) => ({ slug: pkg.slug }));
+  return packages.flatMap((pkg) =>
+    locales.map((lang) => ({ lang, slug: pkg.slug }))
+  );
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { lang, slug } = await params;
   const pkg = getPackageBySlug(slug);
   if (!pkg) return { title: "Not Found" };
+  if (!hasLocale(lang)) return { title: pkg.title };
+  const dict = await getDictionary(lang as Locale);
   return {
-    title: `${pkg.title} Tour`,
+    title: `${pkg.title} ${dict.packageDetail.tourSuffix}`,
     description: pkg.description,
   };
 }
@@ -27,11 +33,15 @@ export async function generateMetadata({
 export default async function TourDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
+  if (!hasLocale(lang)) notFound();
   const pkg = getPackageBySlug(slug);
   if (!pkg) notFound();
+
+  const dict = await getDictionary(lang as Locale);
+  const t = dict.packageDetail;
 
   return (
     <>
@@ -52,7 +62,7 @@ export default async function TourDetailPage({
               </Badge>
             )}
             <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight text-on-surface mb-6 max-w-4xl leading-tight">
-              {pkg.title} Tour
+              {pkg.title} {t.tourSuffix}
             </h1>
           </div>
         </section>
@@ -63,9 +73,9 @@ export default async function TourDetailPage({
             {/* Quick Info Bar */}
             <div className="grid grid-cols-3 gap-4 bg-surface-container-low rounded-xl p-6">
               {[
-                { icon: "schedule", label: "Duration", value: pkg.duration },
-                { icon: "groups", label: "Group", value: pkg.groupType },
-                { icon: "hotel", label: "Pickup", value: pkg.pickup },
+                { icon: "schedule", label: t.duration, value: pkg.duration },
+                { icon: "groups", label: t.group, value: pkg.groupType },
+                { icon: "hotel", label: t.pickup, value: pkg.pickup },
               ].map((item) => (
                 <div
                   key={item.icon}
@@ -87,7 +97,7 @@ export default async function TourDetailPage({
             {/* Description */}
             <article>
               <h2 className="text-2xl font-bold text-on-surface mb-4">
-                The Experience
+                {t.theExperience}
               </h2>
               <p className="text-lg text-on-surface-variant leading-relaxed max-w-3xl">
                 {pkg.description}
@@ -97,7 +107,7 @@ export default async function TourDetailPage({
             {/* Highlights */}
             <section>
               <h2 className="text-2xl font-bold text-on-surface mb-6">
-                Highlights
+                {t.highlights}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {pkg.highlights.map((h) => (
@@ -115,7 +125,7 @@ export default async function TourDetailPage({
             {/* Itinerary */}
             <section>
               <h2 className="text-2xl font-bold text-on-surface mb-8">
-                Itinerary
+                {t.itinerary}
               </h2>
               <div className="space-y-8 relative before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant/30">
                 {pkg.itinerary.map((step) => (
@@ -126,9 +136,7 @@ export default async function TourDetailPage({
                     <h3 className="font-bold text-lg">
                       {step.time} {step.title}
                     </h3>
-                    <p className="text-on-surface-variant">
-                      {step.description}
-                    </p>
+                    <p className="text-on-surface-variant">{step.description}</p>
                   </div>
                 ))}
               </div>
@@ -139,7 +147,7 @@ export default async function TourDetailPage({
               <div>
                 <h2 className="text-xl font-bold text-on-surface mb-6 flex items-center gap-2">
                   <Icon name="check_circle" className="text-primary" />
-                  What&apos;s Included
+                  {t.whatsIncluded}
                 </h2>
                 <ul className="space-y-4 text-on-surface-variant">
                   {pkg.included.map((item) => (
@@ -152,7 +160,7 @@ export default async function TourDetailPage({
               <div>
                 <h2 className="text-xl font-bold text-on-surface mb-6 flex items-center gap-2">
                   <Icon name="cancel" className="text-error" />
-                  Not Included
+                  {t.notIncluded}
                 </h2>
                 <ul className="space-y-4 text-on-surface-variant">
                   {pkg.notIncluded.map((item) => (
@@ -170,18 +178,18 @@ export default async function TourDetailPage({
             <div className="sticky top-28 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 shadow-sm">
               <div className="mb-8">
                 <span className="text-on-surface-variant text-sm font-medium">
-                  Starting from
+                  {t.startingFrom}
                 </span>
                 <div className="flex items-baseline gap-1 mt-1">
                   <span className="text-3xl font-extrabold text-primary">
                     ${pkg.price}
                   </span>
                   <span className="text-on-surface-variant text-sm">
-                    / person
+                    {t.perPerson}
                   </span>
                 </div>
                 <p className="text-[10px] text-on-surface-variant mt-2 italic">
-                  Final price confirmed on WhatsApp
+                  {t.finalPriceNote}
                 </p>
               </div>
               <Button
@@ -190,16 +198,16 @@ export default async function TourDetailPage({
                 external
                 className="w-full"
               >
-                Book via WhatsApp
+                {t.bookViaWhatsApp}
               </Button>
               <div className="mt-8 space-y-4">
                 <div className="flex items-center gap-3 text-sm text-on-surface-variant">
                   <Icon name="verified_user" className="text-lg" />
-                  Secure Booking
+                  {t.secureBooking}
                 </div>
                 <div className="flex items-center gap-3 text-sm text-on-surface-variant">
                   <Icon name="calendar_month" className="text-lg" />
-                  Flexible Rescheduling
+                  {t.flexibleRescheduling}
                 </div>
               </div>
             </div>
@@ -211,14 +219,14 @@ export default async function TourDetailPage({
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl px-6 py-4 flex items-center justify-between border-t border-outline-variant/10 shadow-[0_-8px_30px_rgb(0,0,0,0.04)]">
         <div className="flex flex-col">
           <span className="text-[10px] uppercase font-bold text-on-surface-variant">
-            From
+            {t.startingFrom}
           </span>
           <span className="text-xl font-extrabold text-primary">
             ${pkg.price}
           </span>
         </div>
         <Button href={siteConfig.whatsappUrl} icon="chat" external>
-          Book via WhatsApp
+          {t.bookViaWhatsApp}
         </Button>
       </div>
     </>
