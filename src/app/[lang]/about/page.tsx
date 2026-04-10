@@ -75,14 +75,14 @@ export default async function AboutPage({
             </div>
           </div>
           <div className="relative order-1 md:order-2">
-            <div className="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl rotate-3 translate-x-4">
+            <div className="aspect-[4/5] rounded-lg md:rounded-xl overflow-hidden shadow-2xl rotate-3 translate-x-4">
               <img
                 alt="Local Experience"
                 className="w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6ENpP8ycQhAWRqYvdUBx9fHMDFoWkkik8w617xdiz-cqGhAUBo_SFLaR6NZuMrWYQewmadToj38Jw2lcVGMX67h1CKrSV8yZICB9fTM9j99CNy-_vhtLOvD7PehEO8jNMC7ZN06_DXZFQYkTxH5MJNljTplC8RKKhovIYEHweusTIDxq4ty7hvpAoCw25aEyOR5v82jjvzOEf66TJ4t5U6J_KHZ8ZtZG2-64fYhtPWCQEjt-L_LH83i6rJI3PMY3MVcR1rBfFRLY"
               />
             </div>
-            <div className="absolute -bottom-10 -left-10 w-2/3 aspect-square rounded-xl overflow-hidden shadow-2xl -rotate-6 border-8 border-background hidden md:block">
+            <div className="absolute -bottom-10 -left-10 w-2/3 aspect-square rounded-lg md:rounded-xl overflow-hidden shadow-2xl -rotate-6 border-8 border-background hidden md:block">
               <img
                 alt="Cultural Detail"
                 className="w-full h-full object-cover"
@@ -94,7 +94,7 @@ export default async function AboutPage({
       </section>
 
       {/* Our Values */}
-      <section className="bg-surface-container py-24 rounded-t-xl">
+      <section className="bg-surface-container py-24 rounded-t-lg md:rounded-t-xl">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-16 text-on-surface">
             {t.values.title}
@@ -103,7 +103,7 @@ export default async function AboutPage({
             {t.values.items.map((value, i) => (
               <div
                 key={valueIcons[i]}
-                className="bg-surface-container-lowest p-10 rounded-lg shadow-sm border border-outline-variant/10 group hover:-translate-y-2 transition-all duration-300"
+                className="bg-surface-container-lowest p-10 rounded md:rounded-lg shadow-sm border border-outline-variant/10 group hover:-translate-y-2 transition-all duration-300"
               >
                 <div className="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                   <Icon name={valueIcons[i]} className="text-primary text-3xl" />
@@ -131,7 +131,7 @@ export default async function AboutPage({
 
       {/* CTA Section */}
       <section className="mb-20 px-6 max-w-5xl mx-auto">
-        <div className="bg-primary text-on-primary rounded-xl p-12 md:p-20 text-center relative overflow-hidden">
+        <div className="bg-primary text-on-primary rounded-lg md:rounded-xl p-12 md:p-20 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-dim to-transparent opacity-50" />
           <div className="relative z-10 space-y-8">
             <h2 className="text-3xl md:text-5xl font-bold">{t.cta.title}</h2>

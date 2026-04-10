@@ -77,7 +77,7 @@ export default async function HomePage({
       </section>
 
       {/* Featured Packages */}
-      <section className="bg-surface-container py-24 px-6 rounded-xl mx-4">
+      <section className="bg-surface-container py-24 px-6 rounded-lg md:rounded-xl mx-4">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-end mb-16">
             <div>
@@ -130,7 +130,7 @@ export default async function HomePage({
 
       {/* Tour Guide CTA */}
       <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto bg-primary text-on-primary rounded-xl overflow-hidden flex flex-col lg:flex-row items-center">
+        <div className="max-w-7xl mx-auto bg-primary text-on-primary rounded-lg md:rounded-xl overflow-hidden flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 p-12 lg:p-20">
             <h2 className="text-4xl md:text-5xl font-extrabold mb-8 leading-tight">
               {t.guide.title}
@@ -172,7 +172,7 @@ export default async function HomePage({
 
       {/* Custom Trip Banner */}
       <section className="py-24 px-6">
-        <div className="max-w-5xl mx-auto bg-secondary-container rounded-xl p-12 text-center border-2 border-dashed border-secondary/20">
+        <div className="max-w-5xl mx-auto bg-secondary-container rounded-lg md:rounded-xl p-12 text-center border-2 border-dashed border-secondary/20">
           <Icon name="edit_calendar" className="text-secondary text-5xl mb-6" />
           <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
             {t.custom.title}

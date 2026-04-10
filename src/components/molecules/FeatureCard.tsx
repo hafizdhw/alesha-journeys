@@ -18,7 +18,7 @@ export function FeatureCard({
   return (
     <div className="flex flex-col items-center text-center">
       <div
-        className={`w-20 h-20 ${iconBgClass} rounded-xl flex items-center justify-center mb-6`}
+        className={`w-20 h-20 ${iconBgClass} rounded-lg md:rounded-xl flex items-center justify-center mb-6`}
       >
         <Icon name={icon} className={`${iconTextClass} text-4xl`} />
       </div>

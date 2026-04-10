@@ -51,7 +51,7 @@ export default async function ContactPage({
         {/* Primary Contact Column */}
         <div className="lg:col-span-7 space-y-12">
           {/* WhatsApp Hero Card */}
-          <div className="relative overflow-hidden bg-surface-container-lowest rounded-xl p-8 md:p-12">
+          <div className="relative overflow-hidden bg-surface-container-lowest rounded-lg md:rounded-xl p-8 md:p-12">
             <div className="absolute top-0 right-0 -mr-12 -mt-12 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
             <div className="relative z-10 flex flex-col items-center md:items-start text-center md:text-left">
               <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-8">
@@ -76,7 +76,7 @@ export default async function ContactPage({
           </div>
 
           {/* Checklist Section */}
-          <div className="bg-surface-container rounded-xl p-8 md:p-12">
+          <div className="bg-surface-container rounded-lg md:rounded-xl p-8 md:p-12">
             <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
               <Icon name="edit_note" className="text-primary" />
               {t.checklist.title}
@@ -85,7 +85,7 @@ export default async function ContactPage({
               {t.checklist.items.map((item, i) => (
                 <div
                   key={checklistIcons[i]}
-                  className="flex items-start gap-4 p-4 bg-surface-container-lowest rounded-lg"
+                  className="flex items-start gap-4 p-4 bg-surface-container-lowest rounded md:rounded-lg"
                 >
                   <Icon name={checklistIcons[i]} className="text-primary" />
                   <div>
@@ -119,14 +119,14 @@ export default async function ContactPage({
 
         {/* FAQ Column */}
         <div className="lg:col-span-5">
-          <div className="sticky top-32 bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/10">
+          <div className="sticky top-32 bg-surface-container-lowest rounded-lg md:rounded-xl p-8 border border-outline-variant/10">
             <h3 className="text-2xl font-bold mb-8">{t.faq.title}</h3>
             <div className="space-y-4">
               {faqs.map((faq) => (
                 <FAQItem key={faq.id} faq={faq} />
               ))}
             </div>
-            <div className="mt-12 rounded-lg overflow-hidden h-48 relative">
+            <div className="mt-12 rounded md:rounded-lg overflow-hidden h-48 relative">
               <img
                 alt="Prambanan Temple"
                 className="w-full h-full object-cover"

@@ -9,8 +9,8 @@ interface PackageCardProps {
 
 export function PackageCard({ pkg, lang }: PackageCardProps) {
   return (
-    <div className="bg-surface-container-lowest rounded-xl p-6 group transition-all duration-500 hover:-translate-y-2">
-      <div className="relative rounded-lg overflow-hidden mb-6 aspect-[4/5]">
+    <div className="bg-surface-container-lowest rounded-lg md:rounded-xl p-6 group transition-all duration-500 hover:-translate-y-2">
+      <div className="relative rounded md:rounded-lg overflow-hidden mb-6 aspect-[4/5]">
         <img
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           src={pkg.cardImage}

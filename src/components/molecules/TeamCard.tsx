@@ -6,7 +6,7 @@ interface TeamCardProps {
 
 export function TeamCard({ member }: TeamCardProps) {
   return (
-    <div className="bg-surface-container-low rounded-xl overflow-hidden group">
+    <div className="bg-surface-container-low rounded-lg md:rounded-xl overflow-hidden group">
       <div className="h-80 overflow-hidden">
         <img
           alt={member.name}

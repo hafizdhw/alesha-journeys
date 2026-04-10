@@ -61,20 +61,20 @@ export default async function TourGuidePage({
             </div>
           </div>
           <div className="order-1 lg:order-2 relative">
-            <div className="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
+            <div className="aspect-[4/5] rounded-lg md:rounded-xl overflow-hidden shadow-2xl">
               <img
                 alt="Friendly local guide"
                 className="w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbYB-RLVJt7XDc_2_pKapIak-ATJieBdCwGqLT9seLT7NCZvxAtnHFM_eK6zZrs23ZH5iby1l2_C6ILkHiT1orPr5PcRy25hWWtj-Kuicn8xs0-ftCVhg2FA_AiFXETqP1JeTxQdLou1NSCjdp9kZYNPFapCzlK43gk-IKyEog7PJzww9hHb8wzt5aFHLF_SPfqvJfz-A2kayXSTuGxNHrfV8j8WYnGMT2j6UKRIvhQPj_xQwByJ980CqF3UyTq63u-6dDjOwtrZE"
               />
             </div>
-            <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-secondary-container rounded-lg -z-10" />
+            <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-secondary-container rounded md:rounded-lg -z-10" />
           </div>
         </div>
       </section>
 
       {/* What You Get */}
-      <section className="bg-surface-container py-24 rounded-t-xl">
+      <section className="bg-surface-container py-24 rounded-t-lg md:rounded-t-xl">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16 text-center max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold text-on-surface mb-4">{t.why.title}</h2>
@@ -84,10 +84,10 @@ export default async function TourGuidePage({
             {t.why.features.map((feature, i) => (
               <div
                 key={featureIcons[i]}
-                className="bg-surface-container-lowest p-8 rounded-lg hover:scale-[1.02] transition-transform duration-300"
+                className="bg-surface-container-lowest p-8 rounded md:rounded-lg hover:scale-[1.02] transition-transform duration-300"
               >
                 <div
-                  className={`w-12 h-12 ${featureBgs[i]} ${featureFgs[i]} rounded-xl flex items-center justify-center mb-6`}
+                  className={`w-12 h-12 ${featureBgs[i]} ${featureFgs[i]} rounded-lg md:rounded-xl flex items-center justify-center mb-6`}
                 >
                   <Icon name={featureIcons[i]} />
                 </div>
@@ -103,7 +103,7 @@ export default async function TourGuidePage({
 
       {/* Pricing Card */}
       <section className="max-w-7xl mx-auto px-6 -mt-12 mb-24">
-        <div className="bg-surface-container-lowest rounded-xl p-1 md:p-2 shadow-xl overflow-hidden">
+        <div className="bg-surface-container-lowest rounded-lg md:rounded-xl p-1 md:p-2 shadow-xl overflow-hidden">
           <div className="flex flex-col md:flex-row items-stretch">
             <div className="flex-1 p-8 md:p-12">
               <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
@@ -175,7 +175,7 @@ export default async function TourGuidePage({
           <div className="lg:col-span-1">
             <h2 className="text-4xl font-bold mb-6">{t.testimonials.title}</h2>
             <p className="text-on-surface-variant mb-8">{t.testimonials.subtitle}</p>
-            <div className="bg-surface-container p-4 rounded-lg inline-block">
+            <div className="bg-surface-container p-4 rounded md:rounded-lg inline-block">
               <span className="text-3xl font-bold text-primary block">
                 {t.testimonials.reviewCount}
               </span>
@@ -188,7 +188,7 @@ export default async function TourGuidePage({
             {guideTestimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/10 flex flex-col justify-between"
+                className="bg-surface-container-lowest p-8 rounded md:rounded-lg shadow-sm border border-outline-variant/10 flex flex-col justify-between"
               >
                 <div>
                   <StarRating rating={testimonial.rating} className="mb-4 text-amber-500" />
@@ -215,7 +215,7 @@ export default async function TourGuidePage({
 
       {/* CTA Section */}
       <section className="max-w-7xl mx-auto px-6 mb-24">
-        <div className="bg-primary rounded-xl p-12 text-center text-on-primary relative overflow-hidden">
+        <div className="bg-primary rounded-lg md:rounded-xl p-12 text-center text-on-primary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full -ml-32 -mb-32" />
           <h2 className="text-4xl font-bold mb-6 relative z-10">{t.cta.title}</h2>

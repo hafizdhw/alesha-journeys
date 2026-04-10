@@ -48,14 +48,14 @@ export default async function PackagesPage({
             </p>
           </div>
           <div className="relative">
-            <div className="w-full h-[400px] rounded-xl overflow-hidden shadow-xl transform rotate-2">
+            <div className="w-full h-[400px] rounded-lg md:rounded-xl overflow-hidden shadow-xl transform rotate-2">
               <img
                 className="w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq8gnDfd33a5WLf1p462R8r98tNwZw9zAKkA7Kn1PfBCKPFRKWZ84bx0XAS2iHbDlql9mLgqC5uzr4eLTCVwydPnRd-wvHvfA6lwmHsFTQXUycP71x4-UlBnyf7JFRoepzaEBHLYRKXxN88_1Aw7swv2eqpKjmZF74DqQ9LFRmd_eQ159W4mSOIrIH4Y-4Rfo5m4DmhhBOwp6LS8FJv1M0nbWlNf3gBNyhlXOmNBjObp9QW_2TK6bGuGS2JcdLqfODZd3PbofshWA"
                 alt="Stunning aerial view of Borobudur temple"
               />
             </div>
-            <div className="absolute -bottom-8 -left-8 w-64 h-48 rounded-lg overflow-hidden shadow-2xl border-8 border-surface transform -rotate-3 hidden md:block">
+            <div className="absolute -bottom-8 -left-8 w-64 h-48 rounded md:rounded-lg overflow-hidden shadow-2xl border-8 border-surface transform -rotate-3 hidden md:block">
               <img
                 className="w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuB62b2QutPQKrSu03-VmoAbTXG_6NBpstauPC7Sk0ibIzm8liyRlCK_LXcu1tXtxXgX8eYbQ0wXfZvsGFDqGG5eyWDVGCm_rmr6loz799Po8bdrRhIKmw0U2mhNyQHHn0NZEFYYs64pUJyEy3JSrfSHMIDV89wpyVgh-T3dxn3iCAG5m-18CwjxO2TzKnaRFf0gHz-ks82yweTvVCY2aiTJ2yxkDq80fJtsLIR3Es09Z-x2zihecdJUIitMeyKsf63jZ6T5UzrT8KU"
@@ -71,7 +71,7 @@ export default async function PackagesPage({
         {packages.map((pkg, index) => (
           <div
             key={pkg.slug}
-            className={`group bg-surface-container-lowest rounded-lg p-8 flex flex-col ${
+            className={`group bg-surface-container-lowest rounded md:rounded-lg p-8 flex flex-col ${
               index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             } gap-10 transition-transform duration-300 hover:scale-[1.01]`}
           >
@@ -146,7 +146,7 @@ export default async function PackagesPage({
 
       {/* Custom Trip Banner */}
       <section className="px-6 py-20">
-        <div className="max-w-7xl mx-auto rounded-xl bg-primary-dim p-12 text-center relative overflow-hidden">
+        <div className="max-w-7xl mx-auto rounded-lg md:rounded-xl bg-primary-dim p-12 text-center relative overflow-hidden">
           <div className="relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold text-on-primary mb-6">
               {t.custom.title}

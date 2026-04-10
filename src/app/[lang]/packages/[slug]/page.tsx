@@ -71,7 +71,7 @@ export default async function TourDetailPage({
           {/* Left Content */}
           <div className="lg:col-span-8 space-y-12">
             {/* Quick Info Bar */}
-            <div className="grid grid-cols-3 gap-4 bg-surface-container-low rounded-xl p-6">
+            <div className="grid grid-cols-3 gap-4 bg-surface-container-low rounded-lg md:rounded-xl p-6">
               {[
                 { icon: "schedule", label: t.duration, value: pkg.duration },
                 { icon: "groups", label: t.group, value: pkg.groupType },
@@ -113,7 +113,7 @@ export default async function TourDetailPage({
                 {pkg.highlights.map((h) => (
                   <div
                     key={h.icon}
-                    className="flex items-start gap-4 p-4 rounded-lg bg-surface-container"
+                    className="flex items-start gap-4 p-4 rounded md:rounded-lg bg-surface-container"
                   >
                     <Icon name={h.icon} className="text-primary" />
                     <span className="font-medium">{h.label}</span>
@@ -143,7 +143,7 @@ export default async function TourDetailPage({
             </section>
 
             {/* What's Included / Not Included */}
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-surface-container-low p-8 rounded-xl">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-surface-container-low p-8 rounded-lg md:rounded-xl">
               <div>
                 <h2 className="text-xl font-bold text-on-surface mb-6 flex items-center gap-2">
                   <Icon name="check_circle" className="text-primary" />
@@ -175,7 +175,7 @@ export default async function TourDetailPage({
 
           {/* Right Column: Pricing Sidebar (Desktop) */}
           <aside className="lg:col-span-4 hidden lg:block">
-            <div className="sticky top-28 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 shadow-sm">
+            <div className="sticky top-28 bg-surface-container-lowest p-8 rounded-lg md:rounded-xl border border-outline-variant/10 shadow-sm">
               <div className="mb-8">
                 <span className="text-on-surface-variant text-sm font-medium">
                   {t.startingFrom}

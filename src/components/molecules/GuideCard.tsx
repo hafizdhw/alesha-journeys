@@ -7,8 +7,8 @@ interface GuideCardProps {
 
 export function GuideCard({ guide }: GuideCardProps) {
   return (
-    <div className="bg-surface-container-lowest rounded-xl p-6 flex flex-col sm:flex-row gap-6 shadow-sm border border-outline-variant/10">
-      <div className="w-full sm:w-48 h-64 sm:h-auto rounded-lg overflow-hidden shrink-0">
+    <div className="bg-surface-container-lowest rounded-lg md:rounded-xl p-6 flex flex-col sm:flex-row gap-6 shadow-sm border border-outline-variant/10">
+      <div className="w-full sm:w-48 h-64 sm:h-auto rounded md:rounded-lg overflow-hidden shrink-0">
         <img
           alt={guide.name}
           className="w-full h-full object-cover"
