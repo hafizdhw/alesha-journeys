@@ -1,8 +1,8 @@
-"use client";
 import Link from "next/link";
 import { Package } from "@/types";
 import { Icon } from "@/components/atoms/Icon";
 import { siteConfig } from "@/data/site";
+import { PrintTriggerButton } from "@/components/molecules/PrintTriggerButton";
 
 interface PrintLabels {
   duration: string;
@@ -31,13 +31,7 @@ export function ItineraryPrint({ pkg, lang, labels }: ItineraryPrintProps) {
           <Icon name="arrow_back" className="text-sm" />
           Back to Package
         </Link>
-        <button
-          onClick={() => window.print()}
-          className="flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-primary-dim transition-colors"
-        >
-          <Icon name="print" className="text-sm" />
-          Print / Save as PDF
-        </button>
+        <PrintTriggerButton />
       </div>
 
       {/* Print Content */}
