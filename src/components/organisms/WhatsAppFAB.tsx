@@ -4,7 +4,8 @@ import { Icon } from "@/components/atoms/Icon";
 export function WhatsAppFAB() {
   return (
     <a
-      className="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-whatsapp text-white rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-110 active:scale-95"
+      data-fab
+      className="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-whatsapp text-white rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-110 active:scale-95 print:hidden"
       href={siteConfig.whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"

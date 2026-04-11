@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { packages, getPackageBySlug } from "@/data/packages";
+import { getDestinationBySlug } from "@/data/destinations";
 import { siteConfig } from "@/data/site";
 import { Button } from "@/components/atoms/Button";
 import { Icon } from "@/components/atoms/Icon";
 import { Badge } from "@/components/atoms/Badge";
 import { getDictionary, hasLocale, locales } from "@/dictionaries";
 import type { Locale } from "@/dictionaries";
+import { PrintButton } from "@/components/molecules/PrintButton";
 
 export function generateStaticParams() {
   return packages.flatMap((pkg) =>
@@ -122,6 +125,32 @@ export default async function TourDetailPage({
               </div>
             </section>
 
+            {/* Destinations */}
+            {pkg.destinations && pkg.destinations.length > 0 && (
+              <section>
+                <h2 className="text-2xl font-bold text-on-surface mb-6">
+                  {t.destinationsTitle}
+                </h2>
+                <div className="flex flex-wrap gap-3">
+                  {pkg.destinations.map((slug) => {
+                    const dest = getDestinationBySlug(slug);
+                    if (!dest) return null;
+                    return (
+                      <Link
+                        key={slug}
+                        href={`/${lang}/destinations/${slug}`}
+                        className="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full hover:bg-primary-container hover:text-primary transition-colors group text-sm font-medium"
+                      >
+                        <Icon name={dest.categoryIcon} className="text-primary text-sm" />
+                        {dest.name}
+                        <Icon name="arrow_forward" className="text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </Link>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
+
             {/* Itinerary */}
             <section>
               <h2 className="text-2xl font-bold text-on-surface mb-8">
@@ -210,13 +239,14 @@ export default async function TourDetailPage({
                   {t.flexibleRescheduling}
                 </div>
               </div>
+              <PrintButton href={`/${lang}/packages/${pkg.slug}/print`} />
             </div>
           </aside>
         </div>
       </div>
 
       {/* Sticky Bottom Bar (Mobile) */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl px-6 py-4 flex items-center justify-between border-t border-outline-variant/10 shadow-[0_-8px_30px_rgb(0,0,0,0.04)]">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl px-6 py-4 flex items-center justify-between border-t border-outline-variant/10 shadow-[0_-8px_30px_rgb(0,0,0,0.04)] print:hidden">
         <div className="flex flex-col">
           <span className="text-[10px] uppercase font-bold text-on-surface-variant">
             {t.startingFrom}

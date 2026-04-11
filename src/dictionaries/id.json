@@ -2,6 +2,7 @@
   "nav": {
     "home": "Beranda",
     "packages": "Paket",
+    "destinations": "Destinasi",
     "tourGuide": "Pemandu Wisata",
     "about": "Tentang Kami",
     "contact": "Kontak"
@@ -91,7 +92,8 @@
     "pickup": "Penjemputan",
     "bookViaWhatsApp": "Pesan via WhatsApp",
     "perPerson": "/ orang",
-    "tourSuffix": "Tour"
+    "tourSuffix": "Tour",
+    "destinationsTitle": "Destinasi dalam Paket Ini"
   },
   "tourGuide": {
     "meta": {
@@ -214,6 +216,29 @@
       "description": "Petualangan Yogyakarta autentik Anda hanya selangkah percakapan. Mari ciptakan perjalanan yang hanya milik Anda.",
       "packagesCta": "Lihat Paket Kami",
       "chatCta": "Chat via WhatsApp"
+    }
+  },
+  "destinations": {
+    "meta": {
+      "title": "Destinasi",
+      "description": "Jelajahi destinasi terbaik di dan sekitar Yogyakarta — candi kuno, pantai vulkanik, istana kerajaan, dan permata budaya tersembunyi."
+    },
+    "hero": {
+      "label": "Jelajahi Yogyakarta",
+      "title": "Temukan",
+      "titleHighlight": "Setiap Sudutnya",
+      "description": "Dari candi Warisan Dunia UNESCO hingga pantai vulkanik yang dramatis — tempat-tempat paling luar biasa di Yogyakarta, dikurasi untuk pelancong yang penasaran."
+    },
+    "card": {
+      "exploreButton": "Pelajari"
+    },
+    "detail": {
+      "highlights": "Keunggulan",
+      "tipsTitle": "Tips Wisatawan",
+      "entryFee": "Harga Tiket",
+      "openingHours": "Jam Buka",
+      "foundInPackages": "Tersedia dalam Paket Kami",
+      "backToDestinations": "Semua Destinasi"
     }
   },
   "contact": {

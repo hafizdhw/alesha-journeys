@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "packages": "Packages",
+    "destinations": "Destinations",
     "tourGuide": "Tour Guide",
     "about": "About",
     "contact": "Contact"
@@ -91,7 +92,8 @@
     "pickup": "Pickup",
     "bookViaWhatsApp": "Book via WhatsApp",
     "perPerson": "/ person",
-    "tourSuffix": "Tour"
+    "tourSuffix": "Tour",
+    "destinationsTitle": "Destinations in This Package"
   },
   "tourGuide": {
     "meta": {
@@ -214,6 +216,29 @@
       "description": "Your authentic Yogyakarta adventure is just a conversation away. Let's create a journey that belongs only to you.",
       "packagesCta": "See Our Packages",
       "chatCta": "Chat on WhatsApp"
+    }
+  },
+  "destinations": {
+    "meta": {
+      "title": "Destinations",
+      "description": "Explore the best destinations in and around Yogyakarta — ancient temples, volcanic beaches, royal palaces, and hidden cultural gems."
+    },
+    "hero": {
+      "label": "Explore Yogyakarta",
+      "title": "Discover",
+      "titleHighlight": "Every Corner",
+      "description": "From UNESCO World Heritage temples to dramatic volcanic beaches — Yogyakarta's most remarkable places, curated for curious travelers."
+    },
+    "card": {
+      "exploreButton": "Learn More"
+    },
+    "detail": {
+      "highlights": "Highlights",
+      "tipsTitle": "Visitor Tips",
+      "entryFee": "Entry Fee",
+      "openingHours": "Opening Hours",
+      "foundInPackages": "Found in Our Packages",
+      "backToDestinations": "All Destinations"
     }
   },
   "contact": {

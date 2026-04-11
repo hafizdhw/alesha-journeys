@@ -16,6 +16,25 @@ export interface Package {
   included: string[];
   notIncluded: string[];
   featureIcons: PackageFeature[];
+  destinations?: string[];
+}
+
+export type DestinationCategory = "Temple" | "Beach" | "Nature" | "Heritage" | "Culture" | "Museum";
+
+export interface Destination {
+  slug: string;
+  name: string;
+  area: string;
+  category: DestinationCategory;
+  categoryIcon: string;
+  shortDescription: string;
+  description: string;
+  heroImage: string;
+  cardImage: string;
+  highlights: string[];
+  tips: string[];
+  entryFee?: string;
+  openingHours?: string;
 }
 
 export interface Highlight {

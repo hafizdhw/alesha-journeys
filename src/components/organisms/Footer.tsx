@@ -16,7 +16,7 @@ interface FooterProps {
 
 export function Footer({ lang, t }: FooterProps) {
   return (
-    <footer className="bg-surface-container rounded-t-[3rem] mt-20">
+    <footer className="bg-surface-container rounded-t-[3rem] mt-20 print:hidden">
       <div className="w-full px-8 py-16 flex flex-col md:flex-row justify-between items-start gap-12 max-w-7xl mx-auto">
         <div className="max-w-sm">
           <span className="text-2xl font-bold text-primary mb-6 block font-[family-name:var(--font-headline)]">

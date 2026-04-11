@@ -10,6 +10,7 @@ import type { Locale } from "@/dictionaries";
 interface NavT {
   home: string;
   packages: string;
+  destinations: string;
   tourGuide: string;
   about: string;
   contact: string;
@@ -31,13 +32,14 @@ export function Header({ lang, navT }: HeaderProps) {
   const navItems = [
     { label: navT.home, href: `/${lang}` },
     { label: navT.packages, href: `/${lang}/packages` },
+    { label: navT.destinations, href: `/${lang}/destinations` },
     { label: navT.tourGuide, href: `/${lang}/tour-guide` },
     { label: navT.about, href: `/${lang}/about` },
     { label: navT.contact, href: `/${lang}/contact` },
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl">
+    <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl print:hidden">
       <nav className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
         <div className="flex items-center gap-4">
           <button

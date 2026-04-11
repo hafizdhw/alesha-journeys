@@ -20,7 +20,7 @@ export function FeatureCard({
       <div
         className={`w-20 h-20 ${iconBgClass} rounded-lg md:rounded-xl flex items-center justify-center mb-6`}
       >
-        <Icon name={icon} className={`${iconTextClass} text-4xl`} />
+        <Icon name={icon} className={`${iconTextClass} text-4xl!`} />
       </div>
       <h3 className="text-xl font-bold mb-3">{title}</h3>
       <p className="text-on-surface-variant px-4">{description}</p>

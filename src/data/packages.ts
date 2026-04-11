@@ -79,6 +79,7 @@ export const packages: Package[] = [
         label: "Authentic local breakfast with valley views",
       },
     ],
+    destinations: ["borobudur", "mount-merapi"],
   },
   {
     slug: "prambanan-sunset",
@@ -151,6 +152,7 @@ export const packages: Package[] = [
         label: "Ancient epic storytelling of Ramayana",
       },
     ],
+    destinations: ["prambanan"],
   },
   {
     slug: "parangtritis-beach",
@@ -227,6 +229,7 @@ export const packages: Package[] = [
       },
       { icon: "set_meal", label: "Fresh grilled seafood lunch by the coast" },
     ],
+    destinations: ["parangtritis"],
   },
 ];
 

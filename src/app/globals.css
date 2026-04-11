@@ -82,6 +82,13 @@
   --radius-full: 9999px;
 }
 
+@media print {
+  @page {
+    margin: 15mm;
+  }
+}
+
+
 body {
   font-family: var(--font-body);
   background-color: var(--color-background);
