@@ -37,10 +37,10 @@ export function Footer({ lang, t }: FooterProps) {
               Packages
             </Link>
             <Link
-              href={`/${lang}/tour-guide`}
+              href={`/${lang}/destinations`}
               className="text-on-surface/80 hover:text-tertiary transition-colors"
             >
-              Tour Guide
+              Destinations
             </Link>
           </div>
           <div className="flex flex-col gap-4">

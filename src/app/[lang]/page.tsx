@@ -53,9 +53,11 @@ export default async function HomePage({
           <h1 className="text-5xl md:text-7xl font-extrabold text-on-surface leading-[1.1] mb-6 tracking-tight">
             {t.hero.titleLine1}{" "}
             <span className="text-primary">{t.hero.titleHighlight}</span>
-            <span className="block text-3xl md:text-4xl mt-2 font-medium opacity-80">
-              {t.hero.titleLine2}
-            </span>
+            {t.hero.titleLine2 && (
+              <span className="block text-3xl md:text-4xl mt-2 font-medium opacity-80">
+                {t.hero.titleLine2}
+              </span>
+            )}
           </h1>
           <p className="text-lg md:text-xl text-on-surface-variant mb-10 leading-relaxed font-medium">
             {t.hero.description}
@@ -103,7 +105,7 @@ export default async function HomePage({
       </section>
 
       {/* Why Us */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="pt-16 pb-8 px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           <FeatureCard
             icon="travel_explore"

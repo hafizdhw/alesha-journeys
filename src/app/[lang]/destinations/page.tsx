@@ -51,9 +51,9 @@ export default async function DestinationsPage({
   const t = dict.destinations;
 
   return (
-    <div className="pt-24">
+    <div className="pt-12">
       {/* Hero */}
-      <section className="px-6 py-16 md:py-24 max-w-7xl mx-auto text-center">
+      <section className="px-6 py-6 md:py-12 max-w-7xl mx-auto text-center">
         <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">
           {t.hero.label}
         </span>
