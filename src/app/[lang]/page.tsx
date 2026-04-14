@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { packages } from "@/data/packages";
+import { destinations } from "@/data/destinations";
 import { homeTestimonials } from "@/data/testimonials";
 import { siteConfig } from "@/data/site";
 import { Button } from "@/components/atoms/Button";
@@ -128,29 +129,51 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Tour Guide CTA */}
+      {/* Top Destinations */}
       <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto bg-primary text-on-primary rounded-lg md:rounded-xl overflow-hidden flex flex-col lg:flex-row items-center">
-          <div className="lg:w-1/2 p-12 lg:p-20">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-8 leading-tight">
-              {t.guide.title}
-            </h2>
-            <p className="text-xl opacity-90 mb-10 leading-relaxed">
-              {t.guide.description}
-            </p>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8">
-              <Button href={`/${lang}/tour-guide`} variant="outline" size="lg" className="whitespace-nowrap">
-                {t.guide.cta}
-              </Button>
-              <span className="text-sm italic opacity-70">{t.guide.note}</span>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-between items-end mb-16">
+            <div>
+              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">
+                {t.topDestinations.label}
+              </span>
+              <h2 className="text-4xl font-extrabold">{t.topDestinations.title}</h2>
             </div>
+            <Link
+              href={`/${lang}/destinations`}
+              className="hidden md:flex items-center gap-2 text-primary font-bold hover:underline"
+            >
+              {t.topDestinations.viewAll} <Icon name="arrow_forward" />
+            </Link>
           </div>
-          <div className="lg:w-1/2 w-full h-96 lg:h-auto self-stretch">
-            <img
-              className="w-full h-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWT64aW78apI2x-DNxi9yfaM8DxHL8ZO5vtKcbZ2ABkYHOo-lWOjWMnsFu6hjj1i2AhT9uFAtFef2Cf4Y0ocsaGouno640jysCuOegLco-xtLD8V-oU_xboCzrb42e4rTlVqZ45nzx1K8qVHgyBAUUQ-gNychjnD_2FOn9oLOzhq4AfnlXYjcUOaYxwbV2wXMIrx44t6RB5gShv08W38VD-3rkhMRfFVWeLP9_c8xYPFgE7_hfWk6VnujFnTtaKNDRmJKJ1Y5hkXM"
-              alt="Friendly local Indonesian tour guide"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {destinations.slice(0, 3).map((dest) => (
+              <Link
+                key={dest.slug}
+                href={`/${lang}/destinations/${dest.slug}`}
+                className="group block bg-surface-container-lowest rounded-lg md:rounded-xl overflow-hidden border border-outline-variant/10 hover:shadow-lg transition-shadow"
+              >
+                <div className="h-52 overflow-hidden">
+                  <img
+                    src={dest.cardImage}
+                    alt={dest.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Icon name={dest.categoryIcon} className="text-primary text-sm" />
+                    <span className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                      {dest.category}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">{dest.name}</h3>
+                  <p className="text-sm text-on-surface-variant line-clamp-3">
+                    {dest.shortDescription}
+                  </p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

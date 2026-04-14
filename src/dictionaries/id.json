@@ -45,6 +45,11 @@
       "cta": "Temui Pemandu Kami",
       "note": "Tersedia secara terpisah dari paket wisata sehari"
     },
+    "topDestinations": {
+      "label": "Jelajahi Yogyakarta",
+      "title": "Destinasi Unggulan",
+      "viewAll": "Lihat Semua Destinasi"
+    },
     "testimonials": {
       "title": "Cerita Para Wisatawan",
       "subtitle": "Dengar dari mereka yang telah berjalan bersama kami."

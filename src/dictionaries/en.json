@@ -45,6 +45,11 @@
       "cta": "Meet Our Guides",
       "note": "Available independently from day trip packages"
     },
+    "topDestinations": {
+      "label": "Explore Yogyakarta",
+      "title": "Top Destinations",
+      "viewAll": "View All Destinations"
+    },
     "testimonials": {
       "title": "Traveler Stories",
       "subtitle": "Hear from the souls who wandered with us."

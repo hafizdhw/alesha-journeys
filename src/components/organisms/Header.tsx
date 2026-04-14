@@ -33,7 +33,7 @@ export function Header({ lang, navT }: HeaderProps) {
     { label: navT.home, href: `/${lang}` },
     { label: navT.packages, href: `/${lang}/packages` },
     { label: navT.destinations, href: `/${lang}/destinations` },
-    { label: navT.tourGuide, href: `/${lang}/tour-guide` },
+    // { label: navT.tourGuide, href: `/${lang}/tour-guide` },
     { label: navT.about, href: `/${lang}/about` },
     { label: navT.contact, href: `/${lang}/contact` },
   ];
